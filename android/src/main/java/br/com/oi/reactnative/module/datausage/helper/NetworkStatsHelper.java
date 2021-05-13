@@ -117,7 +117,7 @@ public class NetworkStatsHelper {
         networkStats.getNextBucket(bucket);
         long rx = bucket.getRxBytes();
         networkStats.close();
-        Log.i("rx",rx);
+        //Log.i("rx",rx);
         return rx;
     }
 
@@ -141,7 +141,7 @@ public class NetworkStatsHelper {
         networkStats.getNextBucket(bucket);
         long tx = bucket.getTxBytes();
         networkStats.close();
-        Log.i("tx:", tx);
+       // Log.i("tx:", tx);
         return tx;
     }
 
