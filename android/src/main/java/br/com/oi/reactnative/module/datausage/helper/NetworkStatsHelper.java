@@ -8,9 +8,10 @@ import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.RemoteException;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 
 import java.util.Date;
-import java.util.Log;
+//import android.util.*;
 
 @TargetApi(Build.VERSION_CODES.M)
 public class NetworkStatsHelper {
