@@ -130,7 +130,7 @@ public class NetworkStatsHelper {
         try {
             networkStats = networkStatsManager.queryDetailsForUid(
                                 ConnectivityManager.TYPE_MOBILE,
-                                "",
+                                getSubscriberId(context,ConnectivityManager.TYPE_MOBILE),
                                 startDate != null ? startDate.getTime() : 0,
                                 endDate != null ? endDate.getTime() : System.currentTimeMillis(),
                                 packageUid);
