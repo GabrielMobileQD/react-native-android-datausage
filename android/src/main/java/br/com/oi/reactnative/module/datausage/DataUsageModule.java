@@ -431,8 +431,8 @@ public class DataUsageModule extends ReactContextBaseJavaModule {
 
        double gsmBytesRx = (double) networkStatsHelper.getPackageTxBytesMobile(getReactApplicationContext()) + networkStatsHelper.getPackageTxBytesMobile(getReactApplicationContext(), startDate, endDate);
        double gsmBytesTx = (double) networkStatsHelper.getPackageTxBytesMobile(getReactApplicationContext()) + networkStatsHelper.getPackageTxBytesMobile(getReactApplicationContext(), startDate, endDate);
-        double total = gsmBytesRx + gsmBytesTx;
-        Log.i(TAG, "##### getNetworkManagerStats - " + packageName + " - tx: " + gsmBytesTx + " | rx: " + gsmBytesRx + " | total: " + total);
+       double total = gsmBytesRx + gsmBytesTx;
+       Log.i(TAG, "##### getNetworkManagerStats - " + packageName + " - tx: " + gsmBytesTx + " | rx: " + gsmBytesRx + " | total: " + total);
 
         try {
             if (total > 0D) {
