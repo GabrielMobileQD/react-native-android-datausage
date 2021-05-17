@@ -40,7 +40,7 @@ public class NetworkStatsHelper {
                                 startDate != null ? startDate.getTime() : 0,
                                 endDate != null ? endDate.getTime() : System.currentTimeMillis());
          } catch (RemoteException e) {
-             return e.getMessage();
+             return -1;
          }
         return bucket.getRxBytes();
     }
@@ -57,7 +57,7 @@ public class NetworkStatsHelper {
                                     startDate != null ? startDate.getTime() : 0,
                                     endDate != null ? endDate.getTime() : System.currentTimeMillis());
          } catch (RemoteException e) {
-             return e.getMessage();
+             return -1;
          }
         return bucket.getTxBytes();
     }
@@ -74,7 +74,7 @@ public class NetworkStatsHelper {
                                 startDate != null ? startDate.getTime() : 0,
                                 endDate != null ? endDate.getTime() : System.currentTimeMillis());
          } catch (RemoteException e) {
-             return e.getMessage();
+             return -1;
          }
         return bucket.getRxBytes();
     }
@@ -91,7 +91,7 @@ public class NetworkStatsHelper {
                     startDate != null ? startDate.getTime() : 0,
                     endDate != null ? endDate.getTime() : System.currentTimeMillis());
          } catch (RemoteException e) {
-             return e.getMessage();
+             return -1;
          }
         return bucket.getTxBytes();
     }
@@ -110,7 +110,7 @@ public class NetworkStatsHelper {
                                     endDate != null ? endDate.getTime() : System.currentTimeMillis(),
                                     packageUid);
          } catch (RemoteException e) {
-             return e.getMessage();
+             return -1;
          }
         NetworkStats.Bucket bucket = new NetworkStats.Bucket();
         networkStats.getNextBucket(bucket);
@@ -135,7 +135,7 @@ public class NetworkStatsHelper {
                                 endDate != null ? endDate.getTime() : System.currentTimeMillis(),
                                 packageUid);
          } catch (RemoteException e) {
-             return e.getMessage();
+             return -1;
          }
         NetworkStats.Bucket bucket = new NetworkStats.Bucket();
         networkStats.getNextBucket(bucket);
@@ -159,7 +159,7 @@ public class NetworkStatsHelper {
                                 endDate != null ? endDate.getTime() : System.currentTimeMillis(),
                     packageUid);
          } catch (RemoteException e) {
-             return e.getMessage();
+             return -1;
          }
         NetworkStats.Bucket bucket = new NetworkStats.Bucket();
         networkStats.getNextBucket(bucket);
@@ -182,7 +182,7 @@ public class NetworkStatsHelper {
                                     endDate != null ? endDate.getTime() : System.currentTimeMillis(),
                                     packageUid);
          } catch (RemoteException e) {
-             return e.getMessage();
+             return -1;
          }
         NetworkStats.Bucket bucket = new NetworkStats.Bucket();
         networkStats.getNextBucket(bucket);
