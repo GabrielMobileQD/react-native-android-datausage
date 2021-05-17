@@ -34,14 +34,14 @@ public class NetworkStatsHelper {
 
     public long getAllRxBytesMobile(Context context, Date startDate, Date endDate) {
         NetworkStats.Bucket bucket;
-        // try {
+         try {
             bucket = networkStatsManager.querySummaryForDevice(ConnectivityManager.TYPE_MOBILE,
                                 "",
                                 startDate != null ? startDate.getTime() : 0,
                                 endDate != null ? endDate.getTime() : System.currentTimeMillis());
-        // } catch (RemoteException e) {
-        //     return -1;
-        // }
+         } catch (RemoteException e) {
+             return e.getMessage();
+         }
         return bucket.getRxBytes();
     }
 
@@ -51,14 +51,14 @@ public class NetworkStatsHelper {
 
     public long getAllTxBytesMobile(Context context, Date startDate, Date endDate) {
         NetworkStats.Bucket bucket;
-        // try {
+         try {
             bucket = networkStatsManager.querySummaryForDevice(ConnectivityManager.TYPE_MOBILE,
                                     "",
                                     startDate != null ? startDate.getTime() : 0,
                                     endDate != null ? endDate.getTime() : System.currentTimeMillis());
-        // } catch (RemoteException e) {
-        //     return -1;
-        // }
+         } catch (RemoteException e) {
+             return e.getMessage();
+         }
         return bucket.getTxBytes();
     }
 
@@ -68,14 +68,14 @@ public class NetworkStatsHelper {
 
     public long getAllRxBytesWifi(Date startDate, Date endDate) {
         NetworkStats.Bucket bucket;
-        // try {
+         try {
             bucket = networkStatsManager.querySummaryForDevice(ConnectivityManager.TYPE_WIFI,
                                 null,
                                 startDate != null ? startDate.getTime() : 0,
                                 endDate != null ? endDate.getTime() : System.currentTimeMillis());
-        // } catch (RemoteException e) {
-        //     return -1;
-        // }
+         } catch (RemoteException e) {
+             return e.getMessage();
+         }
         return bucket.getRxBytes();
     }
 
@@ -85,14 +85,14 @@ public class NetworkStatsHelper {
 
     public long getAllTxBytesWifi(Date startDate, Date endDate) {
         NetworkStats.Bucket bucket;
-        // try {
+         try {
             bucket = networkStatsManager.querySummaryForDevice(ConnectivityManager.TYPE_WIFI,
                     null,
                     startDate != null ? startDate.getTime() : 0,
                     endDate != null ? endDate.getTime() : System.currentTimeMillis());
-        // } catch (RemoteException e) {
-        //     return -1;
-        // }
+         } catch (RemoteException e) {
+             return e.getMessage();
+         }
         return bucket.getTxBytes();
     }
 
@@ -102,16 +102,16 @@ public class NetworkStatsHelper {
 
     public long getPackageRxBytesMobile(Context context, Date startDate, Date endDate) {
         NetworkStats networkStats = null;
-        // try {
+         try {
             networkStats = networkStatsManager.queryDetailsForUid(
                                     ConnectivityManager.TYPE_MOBILE,
                                     "",
                                     startDate != null ? startDate.getTime() : 0,
                                     endDate != null ? endDate.getTime() : System.currentTimeMillis(),
                                     packageUid);
-        // } catch (RemoteException e) {
-        //     return e.getMessage();
-        // }
+         } catch (RemoteException e) {
+             return e.getMessage();
+         }
         NetworkStats.Bucket bucket = new NetworkStats.Bucket();
         networkStats.getNextBucket(bucket);
         networkStats.getNextBucket(bucket);
@@ -127,16 +127,16 @@ public class NetworkStatsHelper {
 
     public long getPackageTxBytesMobile(Context context, Date startDate, Date endDate) {
         NetworkStats networkStats = null;
-        // try {
+         try {
             networkStats = networkStatsManager.queryDetailsForUid(
                                 ConnectivityManager.TYPE_MOBILE,
                                 getSubscriberId(context,ConnectivityManager.TYPE_MOBILE),
                                 startDate != null ? startDate.getTime() : 0,
                                 endDate != null ? endDate.getTime() : System.currentTimeMillis(),
                                 packageUid);
-        // } catch (RemoteException e) {
-        //     return e.getMessage();
-        // }
+         } catch (RemoteException e) {
+             return e.getMessage();
+         }
         NetworkStats.Bucket bucket = new NetworkStats.Bucket();
         networkStats.getNextBucket(bucket);
         long tx = bucket.getTxBytes();
@@ -151,16 +151,16 @@ public class NetworkStatsHelper {
 
     public long getPackageRxBytesWifi(Date startDate, Date endDate) {
         NetworkStats networkStats = null;
-        // try {
+         try {
             networkStats = networkStatsManager.queryDetailsForUid(
                                 ConnectivityManager.TYPE_WIFI,
                                 null,
                                 startDate != null ? startDate.getTime() : 0,
                                 endDate != null ? endDate.getTime() : System.currentTimeMillis(),
                     packageUid);
-        // } catch (RemoteException e) {
-        //     return e.getMessage();
-        // }
+         } catch (RemoteException e) {
+             return e.getMessage();
+         }
         NetworkStats.Bucket bucket = new NetworkStats.Bucket();
         networkStats.getNextBucket(bucket);
         long rx = bucket.getRxBytes();
@@ -174,16 +174,16 @@ public class NetworkStatsHelper {
 
     public long getPackageTxBytesWifi(Date startDate, Date endDate) {
         NetworkStats networkStats = null;
-        // try {
+         try {
             networkStats = networkStatsManager.queryDetailsForUid(
                                     ConnectivityManager.TYPE_WIFI,
                                     null,
                                     startDate != null ? startDate.getTime() : 0,
                                     endDate != null ? endDate.getTime() : System.currentTimeMillis(),
                                     packageUid);
-        // } catch (RemoteException e) {
-        //     return e.getMessage();
-        // }
+         } catch (RemoteException e) {
+             return e.getMessage();
+         }
         NetworkStats.Bucket bucket = new NetworkStats.Bucket();
         networkStats.getNextBucket(bucket);
         long tx = bucket.getTxBytes();
